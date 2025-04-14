@@ -118,6 +118,7 @@ def create_service(
     db: Session = Depends(get_db),
     user=Depends(get_current_user)
 ):
+    print(user)
     new_service = Service(**service.model_dump(), org_id=user["org_id"]) 
     print(new_service)
     db.add(new_service)
